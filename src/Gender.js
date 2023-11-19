@@ -33,7 +33,8 @@ const Gender = () => {
               marginLeft: "28px",
               fontSize: "125%",
               marginBottom: "7%",
-              marginRight: "25px"
+              marginRight: "25px",
+              color: 'rgba(43, 109, 150, 0.9)'
             }}
           > 성별을 선택해주세요
           </div>
@@ -43,7 +44,7 @@ const Gender = () => {
               onChange={(e) => handleJobSelectChangeGender(e)}
               value={selectedGender}
               style={{
-                width: "80%", height: "17%", marginLeft: "25px", fontSize: "160%", fontWeight: 500, borderStyle: "groove", opacity: "1",
+                width: "40%", height: "17%", marginLeft: "25px", fontSize: "160%", fontWeight: 500, borderStyle: "groove", opacity: "1",
                 zIndex: "1",
               }} size={2}
             >
@@ -53,7 +54,7 @@ const Gender = () => {
 
             </select>
           </label>
-          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px" }}>(선택된 성별 코드: {selectedGender})
+          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px", color: 'rgba(43, 109, 150, 0.9)' }}>(선택된 성별 코드: {selectedGender})
           </p>
           <div style={{
             marginTop: "40vh", fontSize: "180%", marginLeft: "55%", fontWeight: "800", fontFamily: "Helvetica, sans-serif", color: selectedAge !== "0" && selectedAge !== 0 ? "rgba(43, 109, 150, 0.9)" : "rgba(169, 169, 169, 0.5)",

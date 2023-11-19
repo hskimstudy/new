@@ -34,7 +34,8 @@ const Age = () => {
               marginLeft: "28px",
               fontSize: "125%",
               marginBottom: "7%",
-              marginRight: "25px"
+              marginRight: "25px",
+              color: 'rgba(43, 109, 150, 0.9)'
             }}
           > 나이를 선택해주세요
           </div>
@@ -44,7 +45,7 @@ const Age = () => {
             onChange={(e) => handleJobSelectChangeAge(e)}
             value={selectedAge}
             style={{
-              width: "80%", height: "55%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", opacity: "1",
+              width: "40%", height: "55%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", opacity: "1",
               zIndex: "1",
             }} size={7}
           >
@@ -57,7 +58,7 @@ const Age = () => {
             <option value="50">&nbsp;6. 만 50세 - 55세 </option>
             <option value="56">&nbsp;7. 만 56세 이상 </option>
           </select>
-          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px" }}>(선택된 나이 코드: {selectedAge})
+          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px", color: 'rgba(43, 109, 150, 0.9)' }}>(선택된 나이 코드: {selectedAge})
           </p>
           <div style={{
             marginTop: "8vh", fontSize: "180%", marginLeft: "55%", fontWeight: "800", fontFamily: "Helvetica, sans-serif", color: selectedAge !== "0" && selectedAge !== 0 ? "rgba(43, 109, 150, 0.9)" : "rgba(169, 169, 169, 0.5)",

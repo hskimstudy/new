@@ -35,7 +35,8 @@ const Occupation = () => {
               marginLeft: "28px",
               fontSize: "125%",
               marginBottom: "7%",
-              marginRight: "25px"
+              marginRight: "25px",
+              color: 'rgba(43, 109, 150, 0.9)'
             }}
           >직업을 선택해주세요
           </div>
@@ -45,7 +46,7 @@ const Occupation = () => {
             onChange={(e) => handleSelectChangeJob(e)}
             value={selectedJob}
             style={{
-              width: "80%", height: "55%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", opacity: "1",
+              width: "40%", height: "55%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", opacity: "1",
               zIndex: "1",
             }} size={18}
           >
@@ -71,7 +72,7 @@ const Occupation = () => {
             <option value="20">19. 작가/방송작가</option>
           </select>
 
-          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px" }}>(선택된 직업 코드: {selectedJob})
+          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px", color: 'rgba(43, 109, 150, 0.9)' }}>(선택된 직업 코드: {selectedJob})
           </p>
           <div style={{
             marginTop: "8vh", fontSize: "180%", marginLeft: "55%", fontWeight: "800", fontFamily: "Helvetica, sans-serif", color: selectedJob !== "0" && selectedJob !== 0 ? "rgba(43, 109, 150, 0.9)" : "rgba(169, 169, 169, 0.5)",
