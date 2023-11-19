@@ -97,8 +97,6 @@ const Genre = () => {
               fontSize: "160%",
               fontWeight: 500,
               borderStyle: "groove",
-              opacity: "1",
-              zIndex: "1",
             }}
             size={18}
           >
