@@ -92,7 +92,7 @@ const Genre = () => {
             value={genres.filter((genre) => selectedGenres[genre.value] === 1).map((genre) => genre.value)}
             style={{
               width: "80%",
-              height: "50%",
+              height: "20%",
               marginLeft: "25px",
               fontSize: "160%",
               fontWeight: 500,
