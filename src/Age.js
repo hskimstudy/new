@@ -45,8 +45,7 @@ const Age = () => {
             onChange={(e) => handleJobSelectChangeAge(e)}
             value={selectedAge}
             style={{
-              width: "80%", height: "25%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", opacity: "1",
-              zIndex: "1",
+              width: "80%", height: "25%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", 
             }} size={7}
           >
             <option value="0">&nbsp;※ 터치 후 선택</option>
