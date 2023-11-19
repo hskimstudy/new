@@ -69,11 +69,13 @@ const ExplainResult0 = (props) => {
                   <span
                     style={{
                       padding: '5px 1px 7px 5px',
-                      fontSize: '19px',
-                      marginLeft: '10px'
+                      fontSize: '17px',
+                      marginLeft: '10px',
+                      color: '#004C99',
+                      fontWeight: 'bold'
                     }}
                   >
-
+                    긍정 영향
                   </span>
                 </li>
               ))}
@@ -95,10 +97,12 @@ const ExplainResult0 = (props) => {
                   <span
                     style={{
                       padding: '5px 1px 7px 5px',
-                      fontSize: '19px',
-                      marginLeft: '10px'
+                      fontSize: '17px',
+                      marginLeft: '10px',
+                      color: '#FF6666',
+                      fontWeight: 'bold'
                     }}
-                  >
+                  >부정 영향
                   </span>
                 </li>
               ))}
@@ -119,7 +123,7 @@ const ExplainResult0 = (props) => {
             (Tip. 선호하는 장르로 선택 · 미선택 행동이 모두 <br></br>인공지능의 결과에 영향을 줄 수 있어요) </div>
           <div
             style={{
-              marginTop: "10vh",
+              marginTop: "8vh",
               fontSize: "180%",
               marginLeft: "55%",
               fontWeight: "800",
