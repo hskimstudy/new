@@ -68,7 +68,6 @@ const Genre = () => {
               fontSize: "125%",
               marginBottom: "1%",
               marginRight: "25px",
-              color: 'rgba(43, 109, 150, 0.9)'
             }}
           >
             좋아하는 장르를 선택해주세요
@@ -93,7 +92,7 @@ const Genre = () => {
             value={genres.filter((genre) => selectedGenres[genre.value] === 1).map((genre) => genre.value)}
             style={{
               width: "80%",
-              height: "25%",
+              height: "50%",
               marginLeft: "25px",
               fontSize: "160%",
               fontWeight: 500,
@@ -110,7 +109,7 @@ const Genre = () => {
               </option>
             ))}
           </select>
-          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px", color: 'rgba(43, 109, 150, 0.9)' }}>
+          <p style={{ fontSize: "13px", marginLeft: "28px", marginRight: "60px" }}>
             (선택된 영화 코드: {selectedGenreTitles})
           </p>
           <div
