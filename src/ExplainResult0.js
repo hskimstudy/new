@@ -5,6 +5,8 @@ import React from "react";
 import "font-awesome/css/font-awesome.min.css";
 
 
+
+
 const ExplainResult0 = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,9 +16,18 @@ const ExplainResult0 = (props) => {
 
   console.log(recommendExplanationP)
 
+
   const onArrowRightOutlinedIconClickExplainReHome = useCallback(() => {
     navigate("/",);
   }, [navigate])
+
+  const renderShapValue = (shapValue) => {
+    // 소수점 셋째 자리까지 자르고 문자열로 변환
+    const shapValueString = shapValue.toFixed(2).toString();
+
+    // shapValueString을 화면에 출력하거나 사용할 수 있습니다.
+    return shapValueString;
+  };
 
   return (
     <div className={styles.home}>
@@ -75,7 +86,7 @@ const ExplainResult0 = (props) => {
                       fontWeight: 'bold'
                     }}
                   >
-                    긍정 영향
+                    긍정 영향: &nbsp;+{renderShapValue(resc.shap_value)}
                   </span>
                 </li>
               ))}
@@ -102,7 +113,7 @@ const ExplainResult0 = (props) => {
                       color: '#FF6666',
                       fontWeight: 'bold'
                     }}
-                  >부정 영향
+                  >부정 영향: &nbsp;{renderShapValue(resc.shap_value)}
                   </span>
                 </li>
               ))}
