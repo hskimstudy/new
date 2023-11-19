@@ -87,7 +87,6 @@ const Genre = () => {
             (Tip. 여러 장르를 선택할 수 있어요) </div>
           <label htmlFor="GenreSelect"></label>
           <select
-            multiple
             id="GenreSelect"
             onChange={(e) => handleGenreSelectChange(e)}
             value={genres.filter((genre) => selectedGenres[genre.value] === 1).map((genre) => genre.value)}
