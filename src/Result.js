@@ -44,7 +44,7 @@ const Result = () => {
         );
 
         console.log(userInput);
-        const response = await axios.post("http://127.0.0.1:8000/predict/", userInput);
+        const response = await axios.post("http://3.20.63.156:8000/predict/", userInput);
 
 
         setMovieRecommendations(response.data.recommended_movies);
@@ -68,7 +68,7 @@ const Result = () => {
     };
 
     fetchData();
-  }, ["http://127.0.0.1:8000/predict/", selectedAge, selectedJob, genreObject, selectedGender]);
+  }, ["http://3.20.63.156:8000/predict/", selectedAge, selectedJob, genreObject, selectedGender]);
 
   const onArrowRightOutlinedIconClickResult = useCallback(() => {
     navigate("/ExplainResult0", {
