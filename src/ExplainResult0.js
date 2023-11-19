@@ -119,7 +119,7 @@ const ExplainResult0 = (props) => {
             (Tip. 선호하는 장르로 선택 · 미선택 행동이 모두 <br></br>인공지능의 결과에 영향을 줄 수 있어요) </div>
           <div
             style={{
-              marginTop: "20vh",
+              marginTop: "10vh",
               fontSize: "180%",
               marginLeft: "55%",
               fontWeight: "800",
