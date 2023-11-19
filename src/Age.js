@@ -45,7 +45,7 @@ const Age = () => {
             onChange={(e) => handleJobSelectChangeAge(e)}
             value={selectedAge}
             style={{
-              width: "40%", height: "55%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", opacity: "1",
+              width: "80%", height: "25%", marginLeft: "25px", fontSize: "140%", fontWeight: 500, borderStyle: "groove", opacity: "1",
               zIndex: "1",
             }} size={7}
           >

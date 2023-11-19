@@ -44,7 +44,7 @@ const Gender = () => {
               onChange={(e) => handleJobSelectChangeGender(e)}
               value={selectedGender}
               style={{
-                width: "40%", height: "17%", marginLeft: "25px", fontSize: "160%", fontWeight: 500, borderStyle: "groove", opacity: "1",
+                width: "80%", height: "17%", marginLeft: "25px", fontSize: "160%", fontWeight: 500, borderStyle: "groove", opacity: "1",
                 zIndex: "1",
               }} size={2}
             >

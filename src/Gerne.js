@@ -92,8 +92,8 @@ const Genre = () => {
             onChange={(e) => handleGenreSelectChange(e)}
             value={genres.filter((genre) => selectedGenres[genre.value] === 1).map((genre) => genre.value)}
             style={{
-              width: "40%",
-              height: "50%",
+              width: "80%",
+              height: "25%",
               marginLeft: "25px",
               fontSize: "160%",
               fontWeight: 500,
@@ -102,7 +102,6 @@ const Genre = () => {
               zIndex: "1",
             }}
             size={18}
-            multiple
           >
             <option value="0">&nbsp;※ 터치 후 선택</option>
             {genres.map((genre, index) => (
