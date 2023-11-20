@@ -86,7 +86,7 @@ const ExplainResult0 = (props) => {
                       fontWeight: 'bold'
                     }}
                   >
-                    긍정 영향: &nbsp;+{renderShapValue(resc.shap_value)}
+                    긍정 영향
                   </span>
                 </li>
               ))}
@@ -113,7 +113,7 @@ const ExplainResult0 = (props) => {
                       color: '#FF6666',
                       fontWeight: 'bold'
                     }}
-                  >부정 영향: &nbsp;{renderShapValue(resc.shap_value)}
+                  >부정 영향
                   </span>
                 </li>
               ))}
