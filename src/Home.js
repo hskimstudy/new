@@ -7,7 +7,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const onArrowRightOutlinedIconClick = useCallback(() => {
-    navigate("/Age");
+    navigate("/Gerne");
   }, [navigate]);
 
   return (
