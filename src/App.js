@@ -9,6 +9,7 @@ import Occupation from './Occupation'
 import Result from './Result'
 import ExplainResult0 from './ExplainResult0'
 
+
 function App() {
 
 
@@ -17,9 +18,14 @@ function App() {
     <Routes>
 
       <Route path="/" element={<Home />} />
+      <Route path="/Age" element={<Age />} />
+      <Route path="/Occupation" element={<Occupation />} />
       <Route path="/Gerne" element={<Gerne />} />
+      <Route path="/Gender" element={<Gender />} />
+      <Route path="/Cookie" element={<Cookie />} />
       <Route path="/Result" element={<Result />} />
       <Route path="/ExplainResult0" element={<ExplainResult0 />} />
+
     </Routes>
 
   );
