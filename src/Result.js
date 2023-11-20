@@ -5,14 +5,16 @@ import React from "react";
 import axios from "axios";
 import "font-awesome/css/font-awesome.min.css";
 
+
 class UserInput {
-  constructor(selectedAge, selectedJob, selectedGender, genreObject) {
+  constructor(selectedAge, selectedJob, genreObject, selectedGender) {
     this.age = selectedAge || 0;
     this.occupation = selectedJob || 0;
-    this.gender = selectedGender || "";
     this.genres = genreObject || {};
+    this.gender = selectedGender || "";
   }
 }
+
 
 
 const Result = () => {
@@ -33,16 +35,16 @@ const Result = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+
         const userInput = new UserInput(
           selectedAge,
           selectedJob,
-          selectedGender,
-          genreObject
+          genreObject,
+          selectedGender
         );
 
-
         console.log(userInput);
-        const response = await axios.post("http://3.20.63.156:8011/predict", userInput);
+        const response = await axios.post("http://3.20.63.156:8000/predict/", userInput);
 
 
         setMovieRecommendations(response.data.recommended_movies);
@@ -57,8 +59,10 @@ const Result = () => {
       } catch (error) {
         console.error("Error fetching data: ", error);
         const fakeData = [
-          { title: "자료형 에러(Type Error)" },
-          { title: ": 연구진에게 문의하세요!" }
+          { title: "토이스토리", rating: 4.5 },
+          { title: "독전", rating: 4.2 },
+          { title: "api 연결 실패 시", rating: 4.2 },
+          { title: "가짜 데이터입니다", rating: 4.2 },
         ];
         setMovieRecommendations(fakeData);
         setLoading(false);
@@ -66,7 +70,7 @@ const Result = () => {
     };
 
     fetchData();
-  }, ["http://3.20.63.156:8011/predict", selectedAge, selectedJob, selectedGender, genreObject]);
+  }, ["http://3.20.63.156:8000/predict/", selectedAge, selectedJob, genreObject, selectedGender]);
 
   const onArrowRightOutlinedIconClickResult = useCallback(() => {
     navigate("/ExplainResult0", {
@@ -113,7 +117,7 @@ const Result = () => {
               ) : (
                 movieRecommendations.map((movie) => (
                   <li style={{
-                    padding: '5px 2px 7px 5px',
+                    padding: '5px 1px 7px 5px',
                     marginBottom: '5%',
                     borderBottom: '1px solid #efefef',
                     fontSize: '19px',
@@ -146,164 +150,3 @@ const Result = () => {
 };
 
 export default Result;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useCallback, useEffect, useState } from "react";
-// import styles from "./MainUI.module.css";
-// import { useLocation, useNavigate } from "react-router-dom";
-// import React from "react";
-// import axios from "axios";
-// import "font-awesome/css/font-awesome.min.css";
-
-// class UserInput {
-//   constructor(age, occupation, gender, genreObject) {
-//     this.age = age || 0;
-//     this.occupation = occupation || 0;
-//     this.genres = genreObject || {};
-//     this.gender = gender || "";
-//   }
-// }
-
-// const Result = () => {
-//   const location = useLocation();
-//   const genreObject = location.state.genreObject;
-
-//   const navigate = useNavigate();
-//   const [movieRecommendations, setMovieRecommendations] = useState([]);
-//   const [recommendExplanationShapValue, setRecommendExplanationShapValue] = useState([]);
-//   const [recommendExplanationP, setRecommendExplanationP] = useState([]);
-//   const [recommendExplanationN, setRecommendExplanationN] = useState([]);
-//   const [loading, setLoading] = useState(true);
-
-//   // Default values for user input
-//   const defaultUserInput = new UserInput(0, 0, {}, "string");
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const userInput = new UserInput(
-//           defaultUserInput.age,
-//           defaultUserInput.occupation,
-//           defaultUserInput.genres,
-//           defaultUserInput.gender
-//         );
-
-//         console.log(userInput);
-
-//         const response = await axios.post("http://127.0.0.1:8000/predict", userInput);
-
-//         setMovieRecommendations(response.data.recommended_movies);
-//         setRecommendExplanationShapValue(response.data.shap_values);
-//         setRecommendExplanationP(response.data.shap_values_positive);
-//         setRecommendExplanationN(response.data.shap_values_negative);
-
-//         setLoading(false);
-//       } catch (error) {
-//         console.error("Error fetching data: ", error);
-//         const fakeData = [
-//           { title: "자료형 에러(Type Error)" },
-//           { title: ": 연구진에게 문의하세요!" }
-//         ];
-//         setMovieRecommendations(fakeData);
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchData();
-//   }, [genreObject]);
-
-//   const onArrowRightOutlinedIconClickResult = useCallback(() => {
-//     navigate("/ExplainResult0", {
-//       state: {
-//         recommendExplanationP: recommendExplanationP,
-//         recommendExplanationN: recommendExplanationN
-//       },
-//     });
-//   }, [navigate, recommendExplanationP, recommendExplanationN]);
-
-//   return (
-//     <div className={styles.home}>
-//       <div className={styles.homeChild}>
-//         <img className={styles.homeChild} src="./back.png" alt="Back" />
-//         <div className={styles.homeChild}>
-//           <div
-//             style={{
-//               marginTop: "10%",
-//               fontWeight: "bold",
-//               textAlign: "left",
-//               marginLeft: "28px",
-//               fontSize: "135%",
-//               marginBottom: "7%",
-//               marginRight: "25px",
-//               color: "rgba(43, 109, 150, 0.9)",
-//             }}
-//           >
-//             추천 영화 목록 :
-//           </div>
-//           <div>
-//             <ul>
-//               {loading ? (
-//                 <li key="loading" style={{ listStyleType: "none" }}>
-//                   <i
-//                     className="fa fa-spinner fa-spin"
-//                     style={{ fontSize: "35px", color: "blue" }}
-//                   />
-//                   <span style={{ margin: "5px", marginTop: "30px", width: "350px", height: "50px" }}>
-//                     {" "}
-//                     로딩 중...
-//                   </span>
-//                 </li>
-//               ) : (
-//                 movieRecommendations.map((movie) => (
-//                   <li style={{
-//                     padding: '5px 2px 7px 5px',
-//                     marginBottom: '5%',
-//                     borderBottom: '1px solid #efefef',
-//                     fontSize: '19px',
-//                     listStyle: 'none',
-//                     verticalAlign: 'middle'
-//                   }} key={movie.title}>
-//                     <strong>{movie.title}</strong>
-//                   </li>
-//                 ))
-//               )}
-//             </ul>
-//           </div>
-//           <div
-//             style={{
-//               marginTop: "20vh",
-//               fontSize: "180%",
-//               marginLeft: "55%",
-//               fontWeight: "800",
-//               fontFamily: "Helvetica, sans-serif",
-//               color: "rgba(43, 109, 150, 0.9)",
-//             }}
-//             onClick={onArrowRightOutlinedIconClickResult}
-//           >
-//             Next ▶
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Result;
