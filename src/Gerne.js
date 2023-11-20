@@ -4,17 +4,19 @@ import { useNavigate, useLocation } from "react-router-dom";
 import React from "react";
 
 const Genre = () => {
-  const [selectedGenres, setSelectedGenres] = useState({ 0: 0 });
+  const [selectedGenres, setSelectedGenres] = useState({});
   const navigate = useNavigate();
   const location = useLocation();
 
+  const selectedAge = location.state.selectedAge;
+  const selectedJob = location.state.selectedJob;
 
   const handleGenreSelectChange = (event) => {
     const genreValue = event.target.value;
     setSelectedGenres((prevGenres) => ({
       ...prevGenres,
       [genreValue]: prevGenres[genreValue] ? 0 : 1,
-    }))
+    }));
   };
 
   const onArrowRightClick = useCallback(() => {
@@ -23,8 +25,8 @@ const Genre = () => {
       genreObject[genre.value] = selectedGenres[genre.value] || 0;
     });
 
-    navigate("/Result", { state: { genreObject } });
-  }, [navigate, selectedGenres]);
+    navigate("/Gender", { state: { selectedAge, selectedJob, genreObject } });
+  }, [navigate, selectedAge, selectedJob, selectedGenres]);
 
   const genres = [
     { value: 'Action', title: '1. 액션' },
@@ -85,6 +87,7 @@ const Genre = () => {
             (Tip. 여러 장르를 선택할 수 있어요) </div>
           <label htmlFor="GenreSelect"></label>
           <select
+            multiple
             id="GenreSelect"
             onChange={(e) => handleGenreSelectChange(e)}
             value={genres.filter((genre) => selectedGenres[genre.value] === 1).map((genre) => genre.value)}
@@ -94,12 +97,10 @@ const Genre = () => {
               marginLeft: "25px",
               fontSize: "160%",
               fontWeight: 500,
-              borderStyle: "groove", opacity: "1",
-              zIndex: "1"
+              borderStyle: "groove",
             }}
             size={18}
           >
-            <option value="0">&nbsp;※ 터치 후 선택</option>
             {genres.map((genre, index) => (
               <option key={index} value={genre.value}>
                 {genre.title}
@@ -116,8 +117,7 @@ const Genre = () => {
               marginLeft: "55%",
               fontWeight: "800",
               fontFamily: "Helvetica, sans-serif",
-              color: Object.values(selectedGenres).some(value => value === 1) ? "rgba(43, 109, 150, 0.9)" : "rgba(169, 169, 169, 0.5)",
-              cursor: Object.values(selectedGenres).some(value => value === 1) ? "pointer" : "default",
+              color: "rgba(43, 109, 150, 0.9)",
             }}
             onClick={onArrowRightClick}
           >
