@@ -8,15 +8,13 @@ const Genre = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const selectedAge = location.state.selectedAge;
-  const selectedJob = location.state.selectedJob;
 
   const handleGenreSelectChange = (event) => {
     const genreValue = event.target.value;
     setSelectedGenres((prevGenres) => ({
       ...prevGenres,
       [genreValue]: prevGenres[genreValue] ? 0 : 1,
-    }));
+    }))
   };
 
   const onArrowRightClick = useCallback(() => {
@@ -25,8 +23,8 @@ const Genre = () => {
       genreObject[genre.value] = selectedGenres[genre.value] || 0;
     });
 
-    navigate("/Gender", { state: { selectedAge, selectedJob, genreObject } });
-  }, [navigate, selectedAge, selectedJob, selectedGenres]);
+    navigate("/Result", { state: { genreObject } });
+  }, [navigate, selectedGenres]);
 
   const genres = [
     { value: 'Action', title: '1. 액션' },
@@ -96,7 +94,8 @@ const Genre = () => {
               marginLeft: "25px",
               fontSize: "160%",
               fontWeight: 500,
-              borderStyle: "groove",
+              borderStyle: "groove", opacity: "1",
+              zIndex: "1"
             }}
             size={18}
           >
